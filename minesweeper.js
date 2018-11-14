@@ -124,7 +124,9 @@ function createGameBoard(rows, cols){
                     if($(target).data("distance")== 0){
                         reveal(target)
                     }
-                    if(visited == (rows*cols - placedBombs))
+                    if(visited == (rows*cols - placedBombs)){
+                        gameOver(true)
+                    }
                 }
             }
         }
