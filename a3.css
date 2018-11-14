@@ -1,0 +1,44 @@
+/* format center
+Set unclicked to grey and clicked to different if tile is .bomb or if tile is .safe
+set flagged to something */
+body{
+    text-align: center;
+    background-color: #99badd;
+}
+.OuterContainer{
+    width: 100%;
+    text-align: center;
+}
+.TopLine{
+    display: inline-block;
+    font-size: 25px;
+}
+#face{
+    height: 30px;
+    width: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.instruct{
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+}
+.space{
+    background-color: #9f9fa0;
+    display: inline-block;
+    border: 2px solid #454647;
+    cursor: pointer;
+    border-radius: 2px;
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+    line-height: 38px;
+}
+.visited{
+    background-color: #d6d6d8;
+}
+i {
+    pointer-events: none;
+}

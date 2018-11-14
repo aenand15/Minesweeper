@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+        <title>Minesweeper</title>
+        <link rel = "stylesheet" href = "a3.css">
+        <script language = "javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script language = "javascript" src = "minesweeper.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <meta charset = "UTF-8">
+    </head>
+    <body onload = "createGameBoard(8,8)">
+        <h1>Welcome to Minesweeper!</h1>
+        <h2>Feel free to change the size of the board and see instructions down below on how to play!</h2>
+        <div id = "BoardSize">
+            <input type="number" id="rows" min ="8" max="40"placeholder="# of Rows">
+            <input type="number" id="columns" min = "8" max = "30" placeholder="# of Columns">
+            <button type = "button" id="CreateBoard" onclick="tryCreate()">Create Game Board!</button>
+        </div>
+        <br>
+        <div id="OuterContainer">
+            <p class ="TopLine" id="BombsRemaing">100</p>
+            <img class = "TopLine" id = "face"src="SmilingFace.png" onClick="restart()">
+            <span class = "TopLine" id ="minutes">00</span>
+            <span>:</span>
+            <span class = "TopLine" id="seconds">00</span>
+            <div id="board"></div>
+        </div>
+        <div id = "Instructions">
+            <p id="HighScore">No High Score Yet!</p>
+            <p class="instruct">
+                    The purpose of the game is to open all the cells of the board which do not contain a bomb. You lose if you set off a bomb cell.
+                    Every non-bomb cell you open will tell you the total number of bombs in the eight neighboring cells. Once you are sure that a cell contains a bomb, you can shift-Left Click to put a flag it on it as a reminder. The game ends when you clear all spaces without a mine and put a flag (shift-Left Click) on all cells with a mine.
+            </p>
+            <br>
+            <p class = "instruct">
+                    To restart the game, just click on the yellow face.
+                    The timer is in the top right corner.
+                    The number of bombs yet to be found is in the top left corner (number of flagged bombs minus flagged spaces).
+                    Change the size of the board above! But remember the smallest game board is 8x8 and largest is 40x30. If the board looks distorted, try increasing your browser window!
+                    Happy mine hunting!
+            </p>
+        </div>
+    </body>
+<html>
