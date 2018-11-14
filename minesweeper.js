@@ -12,7 +12,6 @@ var highscore = 10000000000;
 
 //createGameBoard() create game board and add bombs to game board. Then calculate distances.
 function createGameBoard(rows, cols){
-    var visited = 0;
     var timer;
     $('#face').attr("src", "SmilingFace.png")
     var correctFlags = 0;
@@ -118,13 +117,13 @@ function createGameBoard(rows, cols){
             }else{
                 if($(target).hasClass("visited")){
                 }else{
-                    visited++
                     $(target).addClass("visited")
                     $(target).text($(target).data("distance"))
                     if($(target).data("distance")== 0){
                         reveal(target)
                     }
-                    if(visited == (rows*cols - placedBombs)){
+                    console.log($('.visited').length)
+                    if(placedBombs == ((rows*cols) - $('.visited').length)){
                         gameOver(true)
                     }
                 }
