@@ -145,6 +145,18 @@ function gameOver(win){
     clearInterval(clock)
     timer = false;
     $(".space").css("pointer-events", "none")
+    for(i = 1; i<= r; i++){
+        for(j = 1; j <= c; j++){
+            $(".fa-flag").remove()
+            if($('[data-row=' + i+ '][data-col='+ j+']').hasClass("bomb")){
+                $('[data-row=' + i+ '][data-col='+ j+']').css("background-color","red");
+                $('[data-row=' + i+ '][data-col='+ j+']').append("<i class='fa fa-bomb' aria-hidden='true'></i>")
+            }else{
+                $('[data-row=' + i+ '][data-col='+ j+']').text($('[data-row=' + i+ '][data-col='+ j+']').data("distance"))
+                $('[data-row=' + i+ '][data-col='+ j+']').addClass("visited")
+            }
+        }
+    }
     if(win){
         secondsInWin = parseInt($('#seconds').text(), 10)
         minutesInWin = parseInt($('#minutes').text(), 10)
@@ -157,18 +169,6 @@ function gameOver(win){
             alert("Congratulations You Won!")
         }
     }else{
-        for(i = 1; i<= r; i++){
-            for(j = 1; j <= c; j++){
-                $(".fa-flag").remove()
-                if($('[data-row=' + i+ '][data-col='+ j+']').hasClass("bomb")){
-                    $('[data-row=' + i+ '][data-col='+ j+']').css("background-color","red");
-                    $('[data-row=' + i+ '][data-col='+ j+']').append("<i class='fa fa-bomb' aria-hidden='true'></i>")
-                }else{
-                    $('[data-row=' + i+ '][data-col='+ j+']').text($('[data-row=' + i+ '][data-col='+ j+']').data("distance"))
-                    $('[data-row=' + i+ '][data-col='+ j+']').addClass("visited")
-                }
-            }
-        }
         alert("You Lost!")
         $('#face').attr("src", "DeadFace.png")
     }
